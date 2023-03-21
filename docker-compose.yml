@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  php:
+    container_name: handlerlead-php
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    networks:
+      - handlerlead-network
+    volumes:
+      - .:/var/www/html/handlerlead
+  rabbitmq:
+    container_name: handlerlead-rabbitmq
+    image: rabbitmq:3.10.7-management
+    hostname: rabbitmq
+    restart: always
+    environment:
+      - RABBITMQ_DEFAULT_USER=rmuser
+      - RABBITMQ_DEFAULT_PASS=rmpassword
+      - RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS=-rabbit disk_free_limit 2147483648
+    volumes:
+      - ./rabbitmq:/var/lib/rabbitmq
+    networks:
+      - handlerlead-network
+    ports:
+      - 15672:15672
+      - 5672:5672
+
+networks:
+  handlerlead-network:
+    driver: bridge

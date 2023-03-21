@@ -1,0 +1,22 @@
+{
+    "name": "balakirevav/laed-handler",
+    "autoload": {
+        "psr-4": {
+            "LeadHandler\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "and3407",
+            "email": "and3407@yandex.ru"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "vladimir163/lead-generator": "*",
+        "php-amqplib/php-amqplib": ">=3.0",
+        "php-di/php-di": "^7.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
