@@ -17,7 +17,7 @@ class StartController
 
     public function __invoke(): void
     {
-        $this->generator->generateLeads(100, function (IncomingLead $lead) {
+        $this->generator->generateLeads(10000, function (IncomingLead $lead) {
             $this->queueTaskService->createTask(
                 Queues::LEAD_QUEUE,
                 serialize(new Lead($lead->id, $lead->categoryName))
