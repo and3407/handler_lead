@@ -2,3 +2,4 @@
 .idea/
 
 /rabbitmq/
+/logs/log.txt

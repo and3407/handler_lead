@@ -6,11 +6,17 @@
 ````
 docker-compose up --build -d
 ````
-
-2. Войти в контейнер php.
+2. Выполнить
+````
+composer update
+````
+3. Войти в контейнер php.
 ````
 docker-compose exec php bash
-composer update
-supervisorctl
+
+````
+
+4. Запустить
+````
 php index.php start
 ````
